@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* MANDATORY: Apply color-scheme to :root for viewport-wide native UI theming */
+  color-scheme: light dark;
+
+  --k-primary: #186B4C;
+  --k-primary-dark: #114D36;
+  --k-on-primary: #FFFFFF;
+  --k-primary-container: #E2F5EC;
+  --k-on-primary-container: #0D3B29;
+  --k-secondary: #F5B700;
+  --k-on-secondary: #221910;
+  --k-secondary-container: #FFF0BD;
+  --k-on-secondary-container: #221910;
+  --k-accent: #A62B2B;
+  --k-bg: #FFF9EC;
+  --k-surface: #FFFFFF;
+  --k-surface-alt: #F6EEDC;
+  --k-outline: #786954;
+  --k-ink: #221910;
+  --k-ink-muted: #4A3E2D;
+  --k-success: #1B6B3A;
+  --k-success-container: #DCF5E4;
+  --k-on-success-container: #0F3D22;
+  --k-warning: #B87A00;
+  --k-error: #B8251E;
+  --k-error-container: #FCE4E4;
+  --k-on-error-container: #5C1111;
+
+  accent-color: var(--k-primary);
+}
+
+:root.dark {
+  color-scheme: dark;
+
+  --k-primary: #3FBF8A;
+  --k-primary-dark: #2C9A6C;
+  --k-on-primary: #0F1F18;
+  --k-primary-container: #132E23;
+  --k-on-primary-container: #CFFAE6;
+  --k-secondary: #FFC933;
+  --k-on-secondary: #221910;
+  --k-secondary-container: #3D2E05;
+  --k-on-secondary-container: #FFE799;
+  --k-accent: #E0605F;
+  --k-bg: #15110C;
+  --k-surface: #211B14;
+  --k-surface-alt: #2C241A;
+  --k-outline: #8C7D68;
+  --k-ink: #F8F1E3;
+  --k-ink-muted: #D8CCB8;
+  --k-success: #4CD08A;
+  --k-success-container: #123321;
+  --k-on-success-container: #C6F7DC;
+  --k-warning: #FFB547;
+  --k-error: #FF6B6B;
+  --k-error-container: #3D1414;
+  --k-on-error-container: #FFCDD2;
+
+  accent-color: var(--k-primary);
+}
+
+html {
+  background-color: var(--k-bg);
+  color: var(--k-ink);
+  font-family: var(--font-nunito), system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--k-bg);
+  color: var(--k-ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Skip link for keyboard accessibility */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -10rem;
+  z-index: 100;
+  border-radius: 0.75rem;
+  border: 2px solid var(--k-primary);
+  background-color: var(--k-surface);
+  color: var(--k-ink);
+  font-weight: 800;
+  padding: 0.75rem 1.25rem;
+  transition: top 0.15s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* MANDATORY (both rules per modern-web-guidance dialog guide):
+   without them, scrolling over the backdrop or inside the dialog scrolls the page behind it */
+dialog:modal {
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+/* Carousel scroll-snap track per modern-web-guidance carousel guide */
+.carousel-track {
+  scroll-snap-type: x mandatory;
+  touch-action: manipulation;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .carousel-track {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Support Windows High Contrast / Forced Colors Mode per modern-web-guidance color guide */
+@media (forced-colors: active) {
+  a,
+  button,
+  summary,
+  dialog {
+    border: 1px solid ButtonText;
+  }
+
+  :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
