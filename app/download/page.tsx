@@ -29,7 +29,7 @@ export default async function DownloadPage() {
 
   const apkHash =
     release.apkAsset.sha256 ||
-    'd329304b3cc468b9307e632be437ad9d5c26e648d4eee41345b4d56c6f480d84';
+    '424ddd2dbd6b1bbb3795cc1060869ef74aed3a185fdd6a99e82432bec24eba3e';
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
@@ -156,13 +156,13 @@ export default async function DownloadPage() {
                 <span className="block font-sans text-[11px] font-extrabold text-[var(--k-ink-muted)]">
                   Windows PowerShell:
                 </span>
-                Get-FileHash .\katara-v1.1.0-release.apk -Algorithm SHA256
+                Get-FileHash .\{release.apkAsset.name} -Algorithm SHA256
               </div>
               <div className="rounded-xl border border-[var(--k-outline)] bg-[var(--k-surface-alt)] p-3 font-mono text-[var(--k-ink)]">
                 <span className="block font-sans text-[11px] font-extrabold text-[var(--k-ink-muted)]">
                   Linux / macOS:
                 </span>
-                sha256sum katara-v1.1.0-release.apk
+                sha256sum {release.apkAsset.name}
               </div>
             </div>
           </div>

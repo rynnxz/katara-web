@@ -137,7 +137,7 @@ export function parseSha256SumsText(content: string): Map<string, string> {
   for (const rawLine of content.split(/\r?\n/)) {
     const line = rawLine.trim();
     if (!line || line.startsWith('#')) continue;
-    const match = /^([0-9a-fA-F]{64})\s+\*?([^\s/\\]+)$/.exec(line);
+    const match = /^([0-9a-fA-F]{64})\s+\*?([^\s/\\]+)(?:\s+.*)?$/.exec(line);
     if (match) {
       map.set(match[2], match[1].toLowerCase());
     }
@@ -227,28 +227,28 @@ export function renderSafeReleaseNotesHtml(markdown: string): string {
 }
 
 /**
- * Verified static fallback release matching live GitHub Release `v1.1.0`.
+ * Verified static fallback release matching live GitHub Release `v1.1.1`.
  */
 export const FALLBACK_LATEST_RELEASE: KataraReleaseInfo = {
-  tagName: 'v1.1.0',
-  name: 'KATARA v1.1.0 - Ekspansi Multi-Dialek Melayu (Deli, Langkat, Palembang)',
-  publishedAt: '2026-11-11T00:37:37Z',
+  tagName: 'v1.1.1',
+  name: 'KATARA v1.1.1 - Perbaikan Unduhan Modul Deterministik, Google Sign-In & Kontras AA+',
+  publishedAt: '2026-11-11T09:30:00Z',
   publishedDateFormatted: '11 November 2026',
-  htmlUrl: 'https://github.com/rynnxz/KATARA/releases/tag/v1.1.0',
+  htmlUrl: 'https://github.com/rynnxz/KATARA/releases/tag/v1.1.1',
   bodyMarkdown:
-    'Rilis produksi KATARA v1.1.0 dengan modul bawaan Melayu Deli serta modul unduhan mandiri Melayu Langkat & Melayu Palembang.\n\n- Bundel luring penuh Bahasa Melayu Deli (364 kata, 16 unit, 64 pelajaran, kamus, dan Aksara Jawi).\n- Unduhan modul mandiri Bahasa Melayu Langkat (71.391 byte) dan Bahasa Melayu Palembang (74.307 byte) dengan verifikasi tanda tangan Ed25519 serta SHA-256.\n- Peningkatan kontras warna WCAG AA+ di seluruh komponen terang maupun gelap.',
+    '## Pembaruan Utama KATARA v1.1.1\n\n- **Perbaikan Unduhan Modul Dialek**: Sinkronisasi katalog modul bertanda tangan **Ed25519** dan arsip deterministik `module_langkat.zip` (71.391 byte) serta `module_palembang.zip` (74.307 byte) dengan verifikasi penuh `SHA-256`.\n- **Pesan Galat & Diagnostik Jujur**: Pemisahan pesan galat jaringan, berkas tidak lengkap, dan verifikasi keamanan di `RegionPickerScreen`.\n- **Perbaikan Google Sign-In & Mode Tamu**: Konfigurasi OAuth SHA-1, `AuthErrorMapper` berbahasa Indonesia, dan perlindungan progres lokal saat menautkan akun.\n- **Peningkatan UI/UX & Kontras WCAG AA+**: Ikon dan splash **Si Rebung**, layar `/welcome`, bilah filter `KFilterBar` yang ringkas, serta lencana validasi jujur **Sumber Kamus** vs **Dicek Penutur**.',
   bodyHtmlSanitized: renderSafeReleaseNotesHtml(
-    'Rilis produksi KATARA v1.1.0 dengan modul bawaan Melayu Deli serta modul unduhan mandiri Melayu Langkat & Melayu Palembang.\n\n- Bundel luring penuh Bahasa Melayu Deli (364 kata, 16 unit, 64 pelajaran, kamus, dan Aksara Jawi).\n- Unduhan modul mandiri Bahasa Melayu Langkat (71.391 byte) dan Bahasa Melayu Palembang (74.307 byte) dengan verifikasi tanda tangan Ed25519 serta SHA-256.\n- Peningkatan kontras warna WCAG AA+ di seluruh komponen terang maupun gelap.'
+    '## Pembaruan Utama KATARA v1.1.1\n\n- **Perbaikan Unduhan Modul Dialek**: Sinkronisasi katalog modul bertanda tangan **Ed25519** dan arsip deterministik `module_langkat.zip` (71.391 byte) serta `module_palembang.zip` (74.307 byte) dengan verifikasi penuh `SHA-256`.\n- **Pesan Galat & Diagnostik Jujur**: Pemisahan pesan galat jaringan, berkas tidak lengkap, dan verifikasi keamanan di `RegionPickerScreen`.\n- **Perbaikan Google Sign-In & Mode Tamu**: Konfigurasi OAuth SHA-1, `AuthErrorMapper` berbahasa Indonesia, dan perlindungan progres lokal saat menautkan akun.\n- **Peningkatan UI/UX & Kontras WCAG AA+**: Ikon dan splash **Si Rebung**, layar `/welcome`, bilah filter `KFilterBar` yang ringkas, serta lencana validasi jujur **Sumber Kamus** vs **Dicek Penutur**.'
   ),
   apkAsset: {
-    name: 'katara-v1.1.0-release.apk',
-    sizeBytes: 68407621,
-    sizeFormatted: '65,2 MB',
+    name: 'katara-v1.1.1-release.apk',
+    sizeBytes: 65809797,
+    sizeFormatted: '62,8 MB',
     downloadUrl:
-      'https://github.com/rynnxz/KATARA/releases/download/v1.1.0/katara-v1.1.0-release.apk',
+      'https://github.com/rynnxz/KATARA/releases/download/v1.1.1/katara-v1.1.1-release.apk',
     contentType: 'application/vnd.android.package-archive',
-    sha256: 'd329304b3cc468b9307e632be437ad9d5c26e648d4eee41345b4d56c6f480d84',
-    updatedAt: '2026-11-11T00:37:36Z',
+    sha256: '424ddd2dbd6b1bbb3795cc1060869ef74aed3a185fdd6a99e82432bec24eba3e',
+    updatedAt: '2026-11-11T09:30:00Z',
   },
   moduleAssets: [
     {
@@ -256,20 +256,20 @@ export const FALLBACK_LATEST_RELEASE: KataraReleaseInfo = {
       sizeBytes: 71391,
       sizeFormatted: '69,7 KB',
       downloadUrl:
-        'https://github.com/rynnxz/KATARA/releases/download/v1.1.0/module_langkat.zip',
+        'https://github.com/rynnxz/KATARA/releases/download/v1.1.1/module_langkat.zip',
       contentType: 'application/zip',
       sha256: '3ed866afaeb72c1354d4927e651ca9c7fd1e4adf21d6810e462dacbb58562f6f',
-      updatedAt: '2026-11-11T07:56:03Z',
+      updatedAt: '2026-11-11T09:30:00Z',
     },
     {
       name: 'module_palembang.zip',
       sizeBytes: 74307,
       sizeFormatted: '72,6 KB',
       downloadUrl:
-        'https://github.com/rynnxz/KATARA/releases/download/v1.1.0/module_palembang.zip',
+        'https://github.com/rynnxz/KATARA/releases/download/v1.1.1/module_palembang.zip',
       contentType: 'application/zip',
       sha256: 'f75c27e1f28c06bece0cfe5a6deea6f40d40457b614a986d431dde22cabc2095',
-      updatedAt: '2026-11-11T07:56:03Z',
+      updatedAt: '2026-11-11T09:30:00Z',
     },
   ],
   catalogAsset: {
@@ -277,10 +277,10 @@ export const FALLBACK_LATEST_RELEASE: KataraReleaseInfo = {
     sizeBytes: 2302,
     sizeFormatted: '2,2 KB',
     downloadUrl:
-      'https://github.com/rynnxz/KATARA/releases/download/v1.1.0/module_catalog.json',
+      'https://github.com/rynnxz/KATARA/releases/download/v1.1.1/module_catalog.json',
     contentType: 'application/json',
     sha256: '12e574ae6e244916562a4ec93105fa048cabdf9607abc7a4d1e849352cf2389b',
-    updatedAt: '2026-11-11T07:56:03Z',
+    updatedAt: '2026-11-11T09:30:00Z',
   },
   isFallback: true,
 };

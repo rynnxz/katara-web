@@ -55,7 +55,7 @@ export const SITE_CONFIG = {
   repoName: process.env.GITHUB_REPO_NAME || 'KATARA',
   repoUrl: 'https://github.com/rynnxz/KATARA',
   webRepoUrl: 'https://github.com/rynnxz/katara-web',
-  latestReleaseTag: 'v1.1.0',
+  latestReleaseTag: 'v1.1.1',
   minAndroidVersion: 'Android 6.0 (Marshmallow / API 24) ke atas',
   ed25519PublicKey: '57ee50c3b50ecc5775b50a45e6c2d67e3cb03a4a977be93caf156b88cd145466',
   moduleCatalogSha256: '12e574ae6e244916562a4ec93105fa048cabdf9607abc7a4d1e849352cf2389b',
