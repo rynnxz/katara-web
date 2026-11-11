@@ -1,0 +1,29 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# Next.js build output
+/.next/
+/out/
+
+# Testing & coverage
+/coverage
+/lighthouse-reports
+
+# Vercel
+.vercel
+
+# Environment variables & secrets (NEVER commit)
+.env
+.env.*
+!.env.example
+
+# Misc
+*.pem
+*.key
+*.jks
+*.keystore
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
